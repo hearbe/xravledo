@@ -9,19 +9,19 @@
         },
         "AUUID": {
             "description": "UUID acts as the path and account password of each configuration. It is recommended to modify and save it properly. UUID website can be generated: https://www.uuidgenerator.net",
-            "value": "7971db38-deec-412a-a5bf-195a4900faa0"
+            "value": "7b38971d-dece-453a-a5bf-100faa095a49"
         },
         "CADDYIndexPage": {
             "description": "CADDYIndexPage",
-            "value": "https://raw.githubusercontent.com/hearbe/xravledo/mikutap.zip"
+            "value": "https://raw.githubusercontent.com/hearbe/xravledo/main/mikutap.zip"
         },
         "CONFIGCADDY": {
             "description": "Please do not modify it if you are not familiar with the CADDY configuration",
-            "value": "https://raw.githubusercontent.com/hearbe/xravledo/etc/Caddyfile"
+            "value": "https://raw.githubusercontent.com/hearbe/xravledo/master/etc/Caddyfile"
         },
         "CONFIGXRAY": {
             "description": "User-defined network address. Read configuration to run xray, please do not modify it if you are not familiar with xray configuration",
-            "value": "https://raw.githubusercontent.com/hearbe/xravledo/etc/xray.json"
+            "value": "https://raw.githubusercontent.com/hearbe/xravledo/master/etc/xray.json"
         },
         "ParameterSSENCYPT": {
             "description": "SS encryption method, check the support agreement: https://www.v2fly.org/config/protocols/shadowsocks.html",
@@ -29,7 +29,7 @@
         },
         "StoreFiles": {
             "description": "User-defined network address to read the list of stored files",
-            "value": "https://raw.githubusercontent.com/hearbe/xravledo/etc/StoreFiles"
+            "value": "https://raw.githubusercontent.com/hearbe/xravledo/master/etc/StoreFiles"
         }
     },
     "website": "https://github.com/hearbe/xravledo",
