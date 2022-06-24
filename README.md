@@ -1,34 +1,23 @@
-﻿# Use Heroku to deploy Xray high-performance proxy services, (WebSocket tls, vmess, vless, trojan, shadowsocks and socks etc..)
-> Reminder: Misuse may cause the account to be BAN! ! !
-
-## Overview
-Used to deploy vless+websocket+tls on Heroku, and automatically select the latest alpine linux and Xray core for each deployment.
-vless has better performance and takes up less resources.
-
-Use xray +caddy to deploy protocols such as vmess vless trojan shadowsocks socks transmitted via ws at the same time, and the camouflage website has been configured by default.
-Support tor network, and you can start xray and caddy through a custom network configuration file to configure various functions on demand
-Supports storage of custom files. Both directories and account passwords are UUID. The client must use TLS to connect to
-Heroku. It provides us with a free container service. We should not abuse it, so this project should not be used as a long-term circumvention.
-Mirror image
-This image will not be blocked because it takes up a lot of resources. After registering a Heroku account and logging in, click the button below to deploy.
+﻿# •#使用Heroku部署Xray高性能代理服務，（WebSocket tls、vmess、vless、木馬、shadowsocks和socks等）
+> 
 
 ### Server
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://dashboard.heroku.com/new?template=https://github.com/自己的项目名称/文件名称) 
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://dashboard.heroku.com/new?template=https://github.com/hearbe/xravledo) 
 
-Click on the purple above `Deploy to Heroku` jump to the heroku app creation page, fill in the name of the app, select the node (European node is recommended, and the US node will automatically delete YouTube comments and likes!), modify some parameters and UUIDs as needed, and click below deployStart to create the deployment application.
-If an error occurs, you can try a few more times. After the deployment is completed, the bottom of the page will be displayed `Your app was successfully deployed`
-
-* Click Manage App to view and reset the parameters in the Config Vars item under Settings
-* Click Open app to jump to the welcome page domain name to assign a domain name to heroku, the format is xxx.herokuapp.comfor client
-* The default protocol password is 24b4b1e1-7a89-45f6-858c-242cf53b5bdb, the WS path is $UUID-[vmess|vless|trojan|ss|socks] format
-
-### Client
-* ** Be sure to replace all `xxx.herokuapp.com` to your project domain name assigned to heroku**
-* ** Be sure to replace all `24b4b1e1-7a89-45f6-858c-242cf53b5bdb` UUIDs set during deployment, it is recommended to change, not everyone should be the same **
-Latest version of XRay will be automatically installed during deployment.
-
-For security reasons, unless you use a CDN, please don't use a custom domain name. Instead, use the second-level domain name assigned by Heroku to implement XRay vless Websocket + TLS.
+3、账号填写的格式：
+ 服务器地址：自选ip
+* 端口：443
+* UUID： (UUID码)
+* 加密：none
+* 传输协议：ws
+* 伪装类型：none
+* 伪装host：****.workes.dev
+* path路径：/自定义UUID码-vless 或 /自定义UUID码-vmess    (注意：前有斜杠/)
+* vmess额外id（alterid）：0
+* 底层传输安全：tls
+* 跳过证书验证：false
+* SNI地址：****.workes.dev
 
 <details>
 <summary>V2rayN(Xray, V2ray)</summary>
@@ -87,30 +76,5 @@ For security reasons, unless you use a CDN, please don't use a custom domain nam
 ```
 </details>
 
-<details>
-<summary>You can use Cloudflare Workers to transfer traffic, (supporting WS mode of VLESS\VMESS\Trojan-Go) is configured as:</summary>
 
-```js
-const SingleDay = 'xxx.herokuapp.com'
-const DoubleDay = 'xxx.herokuapp.com'
-addEventListener(
-    "fetch",event => {
-    
-        let nd = new Date();
-        if (nd.getDate()%2) {
-            host = SingleDay
-        } else {
-            host = DoubleDay
-        }
-        
-        let url=new URL(event.request.url);
-        url.hostname=host;
-        let request=new Request(url,event.request);
-        event. respondWith(
-            fetch(request)
-        )
-    }
-)
-```
-</details>
 
